@@ -12,7 +12,7 @@
 
 #### **Networking Basics: An Overview for DevOps**
 
-    **Networking is the foundation of modern IT systems. Every application, server, container, and cloud service communicates over a network. For DevOps engineers, understanding networking is essential because deploying, automating, monitoring, and troubleshooting applications all rely on network communication.**
+**Networking is the foundation of modern IT systems. Every application, server, container, and cloud service communicates over a network. For DevOps engineers, understanding networking is essential because deploying, automating, monitoring, and troubleshooting applications all rely on network communication.**
 
 1. **IP Addresses:** An IP (Internet Protocol) address is a unique identifier assigned to a device on a network. It allows devices to locate and communicate with one another.
 
