@@ -22,7 +22,7 @@ Load balancing distributes incoming network traffic across multiple servers so t
     |Limitations|Does not consider server load, connection count, or processing capacity. A busy server can receive another request even when another server is idle|
     |Best suited for|Homogeneous servers and relatively uniform workloads|
 
-    Example: If three identical web servers are running a website with similar request-processing times, Round Robin can provide a simple and effective distribution of traffic.
+    **Example:** If three identical web servers are running a website with similar request-processing times, Round Robin can provide a simple and effective distribution of traffic.
 
 2. **Least Connections**: Least Connections sends a new request to the server currently handling the fewest active connections.
 
