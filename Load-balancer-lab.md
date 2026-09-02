@@ -98,3 +98,114 @@ vagrant up
 ~~~bash
 vagrant up
 ~~~
+
+![alt text](<images/vagrant up.png>)
+
+![alt text](images/vagrant-machine.png)
+
+### **Step 5: Configure Nginx Load Balancer**
+
+- **SSH into the Nginx virtual machine**
+
+    ~~~bash
+    vagrant ssh nginx
+    ~~~
+
+    **I did vagrant ssh nginx to go into the vagrant machine**
+
+    ![alt text](images/vagrant-ssh-nginx.png)
+
+    ![alt text](images/vagrant-ssh-nginx2.png)
+
+- **Edit the Nginx configuration file to set up load balancing:**
+
+    I did the below commands to edit the existing file
+
+    ~~~bash
+    sudo nano /etc/nginx/sites-available/default
+    ~~~
+
+    ![alt text](images/edit-nginx.png)
+
+- **Edit the file to include the following configuration inside the server block:**
+
+    I added the below configuration to my nginx file
+
+        location / {
+          proxy_pass http://web_servers;
+        }
+        upstream web_servers {
+            server <web1_ip>:80;
+            server <web2_ip>:80;
+            server <web3_ip>:80;
+        }
+
+    ![alt text](images/edited-nginx.png)
+
+- **Replace <web1_ip>, <web2_ip>, and <web3_ip> with the actual private IPs of your web server VMs.**
+
+    To get each webserver ip address, i did the following below commands;
+
+    ~~~bash
+    vagrant ssh web1
+
+    ip addr or hostname -I
+    ~~~
+
+    ![alt text](images/web1.png)
+
+    ![alt text](images/web2.png)
+
+    ![alt text](images/web3.png)
+
+    After getting the ip addresses for the three webserver, i replaced the ip address in the nginx configuration to the actual ip address.
+
+    ![alt text](images/web-replace.png)
+
+### **Step 6: Test the Load Balancer**
+
+- **Open a web browser on your local machine and navigate to the private IP address of your Nginx VM**
+
+- **You should see the load-balanced web servers serving informative HTML pages in a round-robin manner**
+
+    **I tested my private Ip address of my nginx vms on my firefox browser**
+
+    ![alt text](images/nginx-web.png)
+
+### **Step 7: Verify Load Balancing**
+
+- **To verify that load balancing is working, SSH into each web server and check their access logs:**
+
+    ~~~bash
+    vagrant ssh web1
+    tail -f /var/log/nginx/access.log
+
+    vagrant ssh web2
+    tail -f /var/log/nginx/access.log
+
+    vagrant ssh web3
+    tail -f /var/log/nginx/access.log
+    ~~~
+
+    **I did the above commands;**
+
+    ![alt text](images/web1-test.png)
+
+    ![alt text](images/web2-test.png)
+
+    ![alt text](images/web3-test.png)
+
+### **Step 8: Check Load Balancing in a Web Browser**
+
+- **On your local machine (not within the virtual machines), open a web browser.**
+- **In the browser's address bar, type the private IP address of your Nginx virtual machine.**
+- **Press Enter.**
+- **You should observe the load-balanced web servers in action, confirming that Nginx is successfully load-balancing the requests.**
+
+    **I copied my private ip address of nginx to my firefox browser, each refresh changes the webserver which confirmed my load balancers is working**
+
+    ![alt text](images/web1-load.png)
+
+    ![alt text](images/web2-load.png)
+
+    ![alt text](images/web3-load.png)
