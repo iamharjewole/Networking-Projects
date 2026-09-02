@@ -202,10 +202,10 @@ vagrant up
 - **Press Enter.**
 - **You should observe the load-balanced web servers in action, confirming that Nginx is successfully load-balancing the requests.**
 
-    **I copied my private ip address of nginx to my firefox browser, each refresh changes the webserver which confirmed my load balancers is working**
+### I copied my private ip address of nginx to my firefox browser, each refresh changes the webserver which confirmed my load balancers is working
 
-    ![alt text](images/web1-load.png)
+![alt text](images/web1-load.png)
 
-    ![alt text](images/web2-load.png)
+![alt text](images/web2-load.png)
 
-    ![alt text](images/web3-load.png)
+![alt text](images/web3-load.png)
