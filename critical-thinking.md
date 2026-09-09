@@ -103,6 +103,27 @@
     |Marketing|10.10.4.0/26|Marketing campaigns and analytics|
     |Human Resources|10.10.5.0/26|Employee records and payroll systems|
 
+    **Data Center**
+
+    Because the organization has a centralized data center, I would not put the servers inside the IT departmental subnet. A separate server subnet provides better security and makes firewall policies easier to manage.
+
+    For example:
+
+    Data Center:
+
+        10.10.10.0/24
+
+    This subnet could contain:
+
+      - Web servers
+      - Database servers
+      - Application servers
+      - DNS/DHCP servers
+      - Monitoring systems
+      - Backup servers
+
+    This gives the network administrator the ability to control which departments can access specific servers.
+
 5. **Troubleshooting Scenarios:**
 
     - **Connectivity Issues:**
