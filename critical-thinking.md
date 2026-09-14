@@ -17,7 +17,7 @@
         - Centralized data center for servers.
         - Each department has its own floor in the office building.
 
-    **As the network administrator, I would design the network so that each department has its own subnet. This will make the network easier to manage, improve security, and allow the organization to grow without redesigning the whole network.**
+        **As the network administrator, I would design the network so that each department has its own subnet. This will make the network easier to manage, improve security, and allow the organization to grow without redesigning the whole network.**
 
     - **Identifying the Subnet Requirements**: The organization currently has six departments:
 
@@ -158,7 +158,7 @@
       - Implement DHCP for dynamic IP address assignment.
       - Reserve static IP addresses for critical devices and servers.
 
-    This subnetting plan efficiently allocates IP addresses for the organization's departments while providing scalability, logical separation, and a framework for troubleshooting and future growth.
+        This subnetting plan efficiently allocates IP addresses for the organization's departments while providing scalability, logical separation, and a framework for troubleshooting and future growth.
 
     - **Optimization**: To improve the network, I would use VLANs to separate the departments logically. Each department could have its own VLAN, while the data center would have a separate VLAN.
 
